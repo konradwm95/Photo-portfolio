@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;1,200&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: black;
+  --second-bg-color: white;
+  --main-text-color: white;
+  --second-text-color: black;
+  --third-text-color: #bbb;
+  --filters-height: 60px;
+  --menu-height: 60px;
+  --menu-transition: 0.6s;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: var(--main-bg-color);
+}
+
+.main-container {
+  position: relative;
+  color: var(--main-text-color);
+}
+
+.menu {
+  position: sticky;
+  height: var(--menu-height);
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  background-color: var(--first-bg-color);
+  padding: 0 5%;
+  margin: auto;
+  background-color: var(--main-bg-color);
+  z-index: 100;
+  transition: var(--menu-transition);
+}
+
+.menu h1 {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+.hamburger-menu {
+  font-size: 1.5rem;
+  transition: 0.2s;
+}
+
+.hamburger-menu:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.drop-down-menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  font-size: 2.1rem;
+  font-weight: 200;
+  color: var(--second-text-color);
+  background-color: var(--second-bg-color);
+  transition: var(--menu-transition) ease-out;
+}
+
+.drop-down-menu .categories {
+  list-style: none;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  transition: var(--menu-transition);
+  transition-delay: 0.6s;
+}
+
+.drop-down-menu .categories li {
+  margin-bottom: 0.6rem;
+}
+
+.drop-down-menu a {
+  text-decoration: none;
+  color: var(--second-text-color);
+  transition: 0.3s;
+}
+
+.drop-down-menu li:hover {
+  letter-spacing: 15px;
+  text-decoration: underline;
+}
+
+.drop-down-menu .adress {
+  position: absolute;
+  left: 15%;
+  font-size: 1.3rem;
+  bottom: calc(var(--menu-height) + 5%);
+  transition: var(--menu-transition);
+  transition-delay: 0.8s;
+}
+
+.drop-down-menu .social-media {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 2.2rem;
+}
+
+.drop-down-menu .social-media > *:hover {
+  transform: scale(1.2);
+}
+
+.under-menu {
+  opacity: 0;
+}
+
+.menu-hidden {
+  background-color: var(--main-bg-color);
+  top: 100vh;
+}
+
+.menu-open {
+  color: var(--second-text-color);
+  background-color: var(--second-bg-color);
+}
+
+.drop-down-menu .menu-categories-hidden {
+  top: 80%;
+  opacity: 0;
+}
+
+.drop-down-menu .menu-adress-hidden {
+  bottom: calc(var(--menu-height) - 45%);
+  opacity: 0;
+}
+
+/* about styles start */
+
+main > *:first-child {
+  margin-top: 5vh;
+}
+
+main > * {
+  margin-left: 10vw;
+  margin-bottom: 3vh;
+  max-width: 80vw;
+}
+
+main > *::before {
+  content: "";
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: #aaa;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+main > .artist-photo::before {
+  display: none;
+}
+
+main p {
+  font-size: 1.2rem;
+}
+
+.artist-photo img {
+  width: 50vw;
+  border-radius: 50%;
+  border: 3px solid #aaa;
+}
+
+@keyframes init1 {
+  from {
+    transform: translateY(25vh) scale(2);
+    color: var(--second-text-color);
+  }
+}
+
+@keyframes init2 {
+  from {
+    transform: translateY(35vh) scale(2);
+    color: var(--second-text-color);
+  }
+}
+
+@keyframes init3 {
+  from {
+    transform: translateY(45vh) scale(2);
+    color: var(--second-text-color);
+  }
+}
+
+@keyframes init4 {
+  from {
+    transform: translateY(45) scale(2);
+    color: var(--second-text-color);
+  }
+}
+
+main > *:nth-child(1) {
+  animation-name: init1;
+  animation-duration: 1.5s;
+}
+
+main > *:nth-child(2) {
+  animation-name: init2;
+  animation-duration: 1.5s;
+}
+
+main > *:nth-child(3) {
+  animation-name: init3;
+  animation-duration: 1.5s;
+}
+
+main > *:nth-child(4) {
+  animation-name: init3;
+  animation-duration: 1.5s;
+}
+
+/* about styles end */
+
+@media screen and (min-width: 600px) {
+  :root {
+    font-size: 24px;
+    --menu-height: 80px;
+    --filters-height: 65px;
+  }
+  /* about styles start */
+  .artist-photo img {
+    width: 30vw;
+  }
+  /* about styles end */
+}
+
+@media screen and (min-width: 900px) {
+  :root {
+    font-size: 36px;
+    --menu-height: 120px;
+    --filters-height: 100px;
+  }
+  /* about styles start */
+  .artist-photo img {
+    width: 20vw;
+  }
+  /* about styles end */
+}
+
+@media screen and (min-width: 1200px) {
+  main {
+    width: 60vw;
+  }
+}

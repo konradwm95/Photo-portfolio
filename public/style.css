@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;1,200&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: black;
+  --second-bg-color: white;
+  --main-text-color: white;
+  --second-text-color: black;
+  --third-text-color: #bbb;
+  --filters-height: 60px;
+  --menu-height: 60px;
+  --menu-transition: 0.6s;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: var(--main-bg-color);
+}
+
+.main-container {
+  position: relative;
+  width: 100%;
+  color: var(--main-text-color);
+}
+
+.menu {
+  position: sticky;
+  height: var(--menu-height);
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  background-color: var(--first-bg-color);
+  padding: 0 5%;
+  margin: auto;
+  background-color: var(--main-bg-color);
+  z-index: 100;
+  transition: var(--menu-transition);
+}
+
+.menu h1 {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+.hamburger-menu {
+  font-size: 1.5rem;
+  transition: 0.2s;
+}
+
+.hamburger-menu:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.drop-down-menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  font-size: 2.1rem;
+  font-weight: 200;
+  color: var(--second-text-color);
+  background-color: var(--second-bg-color);
+  transition: var(--menu-transition) ease-out;
+}
+
+.drop-down-menu .categories {
+  list-style: none;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  transition: var(--menu-transition);
+  transition-delay: 0.6s;
+}
+
+.drop-down-menu .categories li {
+  margin-bottom: 0.6rem;
+}
+
+.drop-down-menu a {
+  text-decoration: none;
+  color: var(--second-text-color);
+  transition: 0.3s;
+}
+
+.drop-down-menu li:hover {
+  letter-spacing: 15px;
+  text-decoration: underline;
+}
+
+.drop-down-menu .adress {
+  position: absolute;
+  left: 15%;
+  font-size: 1.3rem;
+  bottom: calc(var(--menu-height) + 5%);
+  transition: var(--menu-transition);
+  transition-delay: 0.8s;
+}
+
+.drop-down-menu .social-media {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 2.2rem;
+}
+
+.drop-down-menu .social-media > *:hover {
+  transform: scale(1.2);
+}
+
+.under-menu {
+  opacity: 0;
+}
+
+.menu-hidden {
+  background-color: var(--main-bg-color);
+  top: 100vh;
+}
+
+.menu-open {
+  color: var(--second-text-color);
+  background-color: var(--second-bg-color);
+}
+
+.drop-down-menu .menu-categories-hidden {
+  top: 80%;
+  opacity: 0;
+}
+
+.drop-down-menu .menu-adress-hidden {
+  bottom: calc(var(--menu-height) - 45%);
+  opacity: 0;
+}
+
+/* gallery styles start */
+
+.filters {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--filters-height);
+  display: flex;
+  align-items: flex-end;
+  padding: 0 5vw 2vh 5vw;
+  transition: var(--menu-transition);
+  z-index: 10;
+  background-color: var(--main-bg-color);
+}
+
+.filters p {
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+.filters p:hover {
+    cursor: pointer;
+    background-color: var(--second-bg-color);
+    color: var(--second-text-color);
+    border-radius: 2px;
+}
+
+.filters ul {
+  display: flex;
+  list-style: none;
+  overflow: scroll;
+}
+
+.filters li {
+  margin-right: 2.5vw;
+  color: var(--third-text-color);
+}
+
+.filters li.hidden {
+  display: none;
+}
+
+.filters li:hover {
+  cursor: pointer;
+}
+
+.filters li.choosen {
+  color: cornflowerblue;
+}
+
+main h2 {
+  width: 90%;
+  margin: 1.5vh auto;
+}
+
+.photos-container > div {
+  width: 90%;
+  font-size: 1.2rem;
+  margin: 0 auto 30px auto;
+}
+
+.photos-container img {
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/* scroll styles start */
+
+.anim-on-scroll {
+  transition: 0.5s;
+}
+
+.anim-on-scroll.scrolled {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* scroll styles end*/
+
+/* gallery styles end */
+
+@media screen and (min-width: 600px) {
+  :root {
+    font-size: 24px;
+    --menu-height: 80px;
+    --filters-height: 65px;
+  }
+
+  /* gallery style start */
+  .photos-container img {
+    border: 2px solid white;
+    border-radius: 10px;
+  }
+  /* gallery styles end */
+}
+
+@media screen and (min-width: 900px) {
+  :root {
+    font-size: 36px;
+    --menu-height: 120px;
+    --filters-height: 100px;
+  }
+
+  /* gallery styles start */
+  .filters p {
+    padding: 5px;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin-right: 4vw;
+  }
+
+  .filters ul {
+    overflow: hidden;
+  }
+
+  .photos-container {
+    column-count: 2;
+    width: 90vw;
+    margin: auto;
+  }
+
+  .photos-container > div {
+    width: 100%;
+    display: inline-block;
+  }
+  /* gallery styles end */
+}
+
+@media screen and (min-width: 1400px) {
+  /* gallery styles start */
+  .photos-container {
+    column-count: 3;
+  }
+  /* gallery styles end */
+}
